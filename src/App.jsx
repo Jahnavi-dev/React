@@ -1,4 +1,4 @@
-import Iplpage from "./Components/iplBody";
+import Iplpage from "./Components/iplPage";
 
 const App=()=>{
   return(
