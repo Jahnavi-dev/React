@@ -1,11 +1,8 @@
-import ConditionalRenComp from "./Components/ConditionalRen";
-import IplTeamsComp from "./Components/IplTeams";
-
+import IplFilteredComp from "./Components/iplFiltered";
 
 const App=()=>{
   return(
-      // <ConditionalRenComp/>
-      <IplTeamsComp/>
+    <IplFilteredComp/>
   )
 }
 
