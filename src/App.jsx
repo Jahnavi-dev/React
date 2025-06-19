@@ -1,8 +1,11 @@
-import Iplpage from "./Components/iplBody";
+import ConditionalRenComp from "./Components/ConditionalRen";
+import IplTeamsComp from "./Components/IplTeams";
+
 
 const App=()=>{
   return(
-      <Iplpage/>
+      // <ConditionalRenComp/>
+      <IplTeamsComp/>
   )
 }
 
