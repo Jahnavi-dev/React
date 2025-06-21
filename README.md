@@ -1,1 +1,1 @@
-##Map, Filter, Reduce
+##CBC's and Styling Types
