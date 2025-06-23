@@ -1,10 +1,11 @@
-import ProductsMainCont from "./Components/ProductsMainCont";
+import CounterComp from "./Components/CBComps/CounterComp";
+
 
 const App=()=>{
 
   return(
     <>
-    <ProductsMainCont/>
+    <CounterComp/>
     </>
   )
 }
