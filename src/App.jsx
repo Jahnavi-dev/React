@@ -1,11 +1,12 @@
-import CounterComp from "./Components/CBComps/CounterComp";
+import TimerComp from "./Components/CBComps/TimerComp";
+
 
 
 const App=()=>{
 
   return(
     <>
-    <CounterComp/>
+    <TimerComp/>
     </>
   )
 }
