@@ -1,4 +1,5 @@
-import TimerComp from "./Components/CBComps/TimerComp";
+import StateCRUD from "./Components/CBComps/StateCrud";
+
 
 
 
@@ -6,7 +7,7 @@ const App=()=>{
 
   return(
     <>
-    <TimerComp/>
+    <StateCRUD/>
     </>
   )
 }
