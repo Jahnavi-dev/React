@@ -1,4 +1,4 @@
-import StateCRUD from "./Components/CBComps/StateCrud";
+import MountingStageComp from "./Components/CBComps/MountingStage";
 
 
 
@@ -7,7 +7,7 @@ const App=()=>{
 
   return(
     <>
-    <StateCRUD/>
+    <MountingStageComp color={"green"}/>
     </>
   )
 }
