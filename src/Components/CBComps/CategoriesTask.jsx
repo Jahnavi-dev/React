@@ -18,22 +18,33 @@ class CategoriesTask extends Component{
     fetchData=async()=>{
         const res=await axios.get("https://fakestoreapi.in/api/products/category");
         console.log(res);
-        this.setState({catogeries:res.data.categories},()=>{console.log(this.state, "inside fetchData setState")})
+        this.setState({catogeries:[...res.data.categories, "All Products"]},()=>{console.log(this.state, "inside fetchData setState")})
     }
 
     buttonAction=async(eachCategory)=>{
         console.log(eachCategory);
-        const res=await axios.get("https://fakestoreapi.in/api/products")
-        console.log(res.data.products);
-        const filteredProducts=res.data.products.filter(eachProduct=>{
-            if(eachProduct.category===eachCategory){
-                return eachProduct
-            }
-        })
-        console.log(filteredProducts);
-        this.setState({
-            products:filteredProducts
-        })
+        if (eachCategory!=="All Products"){
+            const res=await axios.get("https://fakestoreapi.in/api/products")
+            console.log(res.data.products);
+            const filteredProducts=res.data.products.filter(eachProduct=>{
+                if(eachProduct.category===eachCategory){
+                    return eachProduct
+                }
+            })
+            console.log(filteredProducts);
+            this.setState({
+                products:filteredProducts
+            })
+        }
+        else{
+            const res=await axios.get("https://fakestoreapi.in/api/products")
+            console.log(res.data.products);
+            this.setState({
+                products:res.data.products
+            })
+            
+        }
+       
    
     }
 
