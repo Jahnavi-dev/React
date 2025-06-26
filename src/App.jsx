@@ -1,6 +1,5 @@
-import CategoriesTask from "./Components/CBComps/CategoriesTask";
-import MountingStageComp from "./Components/CBComps/MountingStage";
-
+import UnMountingStageComp from "./Components/CBComps/UnMountingStage";
+import UpdatingStageComp from "./Components/CBComps/UpdatingStage";
 
 
 
@@ -8,10 +7,9 @@ const App=()=>{
 
   return(
     <>
-    
-    {/* <MountingStageComp color={"green"}/> */}
-    <CategoriesTask/>
-    
+    {/* <UpdatingStageComp color="red"/>   */}
+    <UnMountingStageComp/>
+
     </>
   )
 }
