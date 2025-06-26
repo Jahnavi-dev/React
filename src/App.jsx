@@ -8,8 +8,10 @@ const App=()=>{
 
   return(
     <>
+    
     {/* <MountingStageComp color={"green"}/> */}
     <CategoriesTask/>
+    
     </>
   )
 }
