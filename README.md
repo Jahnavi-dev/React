@@ -1,1 +1,1 @@
-##Updating stage and unMounting stage
+##CBC React Lifecycle
