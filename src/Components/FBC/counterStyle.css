@@ -1,0 +1,45 @@
+.main_Body {
+  height:100vh;
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background-color:pink;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main_Cont{
+    width:400px;
+    border:2px solid black;
+    background: radial-gradient(ellipse farthest-corner at 80% 20%, lightskyblue, white);
+    text-align: center;
+    padding:20px;
+    border:1px solid;
+    border-radius: 15px;
+}
+
+
+.counter_Value{
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.btn_Cont{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.counter_Btn{
+    height:35px;
+    background: radial-gradient(ellipse farthest-corner at 70% 30%, lightskyblue, white);
+    color:black;
+    border-radius: 10px;
+    border:1px solid black;
+}
+
+.unSubscribe{
+    border: 0;
+}
