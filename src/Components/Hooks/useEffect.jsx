@@ -1,22 +1,20 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { checkObjectEmpty } from "./Utills/jsFuncts";
 
 const UseEffectComp = () => {
   const [products, setProducts] = useState([]);
   const [counter, setCounter] = useState(1);
   const [eachProduct, setEachProduct] = useState({});
 
+  // useEffect will trigger once to fetch data
   useEffect(() => {
     console.log("useEffect");
     fetchData();
     document.title = `Counter ${counter}`;
   }, []);
 
-  useEffect(() => {
-    document.title = `Counter ${counter}`;
-    fetchEachProduct();
-  }, [counter]);
-
+  //To fetch all todos from server
   const fetchData = async () => {
     const result = await axios.get("https://fakestoreapi.com/products");
     console.log(result);
@@ -25,6 +23,13 @@ const UseEffectComp = () => {
     }
   };
 
+  // useEffect will trigger every time when an array value changes
+  useEffect(() => {
+    document.title = `Counter ${counter}`;
+    fetchEachProduct();
+  }, [counter]);
+
+  //this will fetch data based on current counter value
   const fetchEachProduct = async () => {
     const result = await axios.get(
       `https://fakestoreapi.com/products/${counter}`
@@ -38,6 +43,8 @@ const UseEffectComp = () => {
   const counterHandler = () => {
     setCounter(counter + 1);
   };
+
+  
 
   return (
     <>
@@ -56,7 +63,7 @@ const UseEffectComp = () => {
       ) : (
         <h3>Products not fetched properly</h3>
       )} */}
-      {eachProduct !== {} ? (
+      {!checkObjectEmpty(eachProduct) ? (
         <h5>{eachProduct.title}</h5>
       ) : (
         products.map((eachProduct) => {

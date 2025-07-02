@@ -8,8 +8,8 @@ const App=()=>{
   return(
     <>
     {/* <UnConComp/>    */}
-    <ControlComp/>
-    {/* <UseEffectComp/> */}
+    {/* <ControlComp/> */}
+    <UseEffectComp/>
     </>
   )
 }
