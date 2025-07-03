@@ -6,7 +6,7 @@ const InvalidScreen = () => {
 
     // navigate("/");
 
-    const giveAcess = false;
+    const giveAcess = true;
     if (giveAcess) {
       navigate("/");
     }
