@@ -44,8 +44,6 @@ const UseEffectComp = () => {
     setCounter(counter + 1);
   };
 
-  
-
   return (
     <>
       <h3>UseEffect Hook</h3>

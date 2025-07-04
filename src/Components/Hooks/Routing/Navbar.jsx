@@ -1,13 +1,12 @@
 import { Link } from "react-router-dom";
 
 const NavBar = () => {
-
   const linkStyle = {
     textDecoration: "none",
     color: "black",
   };
   return (
-    <nav className="navbar navbar-expand-sm" >
+    <nav className="navbar navbar-expand-sm">
       <div className="container-fluid">
         <ul className="navbar-nav">
           <li className="nav-item nav-link">

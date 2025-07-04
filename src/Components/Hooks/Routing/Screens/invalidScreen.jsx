@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 const InvalidScreen = () => {
   const navigate = useNavigate();
   const userActionToHomeScreen = () => {
-
     // navigate("/");
 
     const giveAcess = true;

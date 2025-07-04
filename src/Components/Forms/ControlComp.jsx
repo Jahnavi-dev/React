@@ -62,7 +62,7 @@ const ControlComp = () => {
   };
 
   const success = () => {
-    console.log("Login Successful")
+    console.log("Login Successful");
     setSuccessInfo("Login data successfully");
   };
 

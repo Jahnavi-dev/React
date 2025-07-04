@@ -34,7 +34,7 @@ const Counter = () => {
         {subscribe ? (
           <>
             <div>
-              <h2>Counter</h2>
+              <h2>Counter App</h2>
               <h2 className="counter_Value">{count}</h2>
             </div>
             {/* <button onClick={() => Action("Increment")}>Increment</button>
