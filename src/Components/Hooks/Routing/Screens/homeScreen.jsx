@@ -1,26 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import NavBar from "../Navbar";
 import axios from "axios";
 import { CheckArrayLengthExists } from "../../Utills/jsFuncts";
 import { Link } from "react-router-dom";
+import { cartInfo } from "../Navigations/NavigateComp";
 
 const HomeScreen = () => {
   const [productsList, setProductsList] = useState([]);
+  const { cartProducts, cartAction } = useContext(cartInfo);
 
   useEffect(() => {
     fetchProducts();
   }, []);
-
-  // useEffect(() => {
-  //   window.addEventListener("mousemove", handleMouseMove);
-  //   return () => {
-  //     window.removeEventListener("mousemove", handleMouseMove);
-  //   };
-  // }, []);
-  // const handleMouseMove = (event) => {
-    
-  //   console.log(event);
-  // };
 
   const fetchProducts = async () => {
     try {
@@ -30,6 +21,11 @@ const HomeScreen = () => {
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const addingProductToCart = (id) => {
+    cartAction(id);
+    console.log(cartProducts);
   };
 
   return (
@@ -44,8 +40,15 @@ const HomeScreen = () => {
           return (
             <React.Fragment key={id}>
               <h3>{title}</h3>
-              <img src={image} height={250} width={250}/>
-              <button><Link to={`/product/${id}`}>Click to view ProductDetailPage</Link></button>
+              <img src={image} height={250} width={250} />
+              <button>
+                <Link to={`/product/${id}`}>
+                  Click to view ProductDetailPage
+                </Link>
+              </button>
+              <button onClick={() => addingProductToCart(id)}>
+                Add to cart
+              </button>
             </React.Fragment>
           );
         })

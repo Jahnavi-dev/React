@@ -5,45 +5,48 @@ import SettingsScreen from "../Screens/settingsScreen";
 import ContactScreen from "../Screens/contactScreen";
 import InvalidScreen from "../Screens/invalidScreen";
 import ProductDetailPage from "../Screens/productDetails";
-import { useState } from "react";
-import { createContext } from "react";
+import AddToCartScreen from "../Screens/addToCartScreen";
+import { createContext, useState } from "react";
+import axios from "axios";
 
-
-export const userInfo=createContext()
-export const themeInfo=createContext()
-export const counterInfo=createContext()
+export const cartInfo = createContext();
 const NavigateComp = () => {
-  const [userName, setUserName]=useState("Ram")
-  const [darkMode, setDarkMode]=useState(false)
-  const [counter, setCounter]=useState(0)
-  
+  const [cartProducts, setCartProducts] = useState([]);
 
-  const themeActions=()=>{
-    setDarkMode(!darkMode)
-  }
+  const cartAction = async (idNo) => {
+    const res = await axios.get(`https://fakestoreapi.com/products/${idNo}`);
+    console.log(res.data);
+    const { id, title, image } = res.data;
+    const productData = { id, title, image };
+    console.log(productData);
+    setCartProducts((cartProducts) => [...cartProducts, productData]);
+    console.log(cartProducts);
+  };
 
-  const CounterActions=(value=1)=>{
-    setCounter(counter+value)
-  }
+  const cartActionRemove = (idNo) => {
+    const filterCartProducts = cartProducts.filter((eachProduct) => {
+      if (eachProduct.id !== idNo) {
+        return eachProduct;
+      }
+    });
+    setCartProducts(filterCartProducts);
+  };
 
   return (
     <>
-    <userInfo.Provider value={userName}>
-    <themeInfo.Provider value={{darkMode, themeActions}}>
-    <counterInfo.Provider value={{counter, CounterActions}}>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" Component={HomeScreen} />
-          <Route path="/About" Component={AboutScreen} />
-          <Route path="/Settings" Component={SettingsScreen} />
-          <Route path="/Contact" Component={ContactScreen} />
-          <Route path="/product/:productId" Component={ProductDetailPage} />
-          <Route path="*" Component={InvalidScreen} />
-        </Routes>
-      </BrowserRouter>
-    </counterInfo.Provider>
-    </themeInfo.Provider>
-    </userInfo.Provider>
+      <cartInfo.Provider value={{ cartProducts, cartAction, cartActionRemove }}>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" Component={HomeScreen} />
+            <Route path="/About" Component={AboutScreen} />
+            <Route path="/Settings" Component={SettingsScreen} />
+            <Route path="/Contact" Component={ContactScreen} />
+            <Route path="/Cart" Component={AddToCartScreen} />
+            <Route path="/product/:productId" Component={ProductDetailPage} />
+            <Route path="*" Component={InvalidScreen} />
+          </Routes>
+        </BrowserRouter>
+      </cartInfo.Provider>
     </>
   );
 };

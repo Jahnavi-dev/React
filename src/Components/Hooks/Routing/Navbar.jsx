@@ -1,24 +1,20 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { counterInfo, themeInfo, userInfo } from "./Navigations/NavigateComp";
+import { cartInfo } from "./Navigations/NavigateComp";
 
 const NavBar = () => {
-  const userName=useContext(userInfo)
-  // console.log(userName);
-  const {darkMode}=useContext(themeInfo)
-  const {counter}=useContext(counterInfo)
-  
+  const { cartProducts } = useContext(cartInfo);
   const linkStyle = {
     textDecoration: "none",
-    color: darkMode?"white":"black",
+    color: "black",
   };
   return (
-    <nav className={darkMode?"navbar navbar-expand-lg navbar-light bg-dark":"navbar navbar-expand-lg navbar-light bg-light"}>
+    <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
         <ul className="navbar-nav">
           <li className="nav-item nav-link">
             <Link to={"/"} style={linkStyle}>
-              Home {userName}
+              Home
             </Link>
           </li>
           <li className="nav-item nav-link">
@@ -33,8 +29,14 @@ const NavBar = () => {
           </li>
           <li className="nav-item nav-link">
             <Link to={"/Contact"} style={linkStyle}>
-              Contact{counter}
+              Contact
             </Link>
+          </li>
+          <li className="nav-item nav-link">
+            <Link to={"/Cart"} style={linkStyle}>
+              Cart
+            </Link>
+            {cartProducts.length > 0 && cartProducts.length}
           </li>
         </ul>
       </div>
